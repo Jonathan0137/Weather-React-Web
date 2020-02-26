@@ -1,0 +1,6 @@
+{
+    "api":{
+        "weatherBaseURL":"http://api.openweathermap.org/data/2.5/weather?q=???&appid=!!!",
+        "weatherURLwithUnits":"http://api.openweathermap.org/data/2.5/weather?q=???&appid=!!!&units=$$$"
+    }
+}
