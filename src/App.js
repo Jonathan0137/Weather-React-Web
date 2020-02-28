@@ -63,18 +63,21 @@ class App extends React.Component {
 
   render(){
     return(
-      <div>
-        <Titles />
-        <Form getWeather={this.getWeather}/>
-        <Weather 
-          temp = {this.state.temp}
-          city = {this.state.city}
-          country = {this.state.country}
-          humidity = {this.state.humidity}
-          description = {this.state.description}
-          main = {this.state.main}
-          error = {this.state.error}
-        />
+      <div className="box">
+        <div className = "content">
+          <img src="" alt="icon" id="icon"></img>
+          <Titles />
+          <Form getWeather={this.getWeather}/>
+          <Weather 
+            temp = {this.state.temp}
+            city = {this.state.city}
+            country = {this.state.country}
+            humidity = {this.state.humidity}
+            description = {this.state.description}
+            main = {this.state.main}
+            error = {this.state.error}
+          />
+        </div>
       </div>
     );
   }
