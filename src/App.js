@@ -4,11 +4,9 @@ import Form from "./components/Form"
 import Weather from "./components/Weather"
 const config = require('./config.json');
 const dotenv = require('dotenv');
-// dotenv.config({path: __dirname + '/.env'});
 dotenv.config()
-//.env
-// const API_Key = 'b942a4a2b51d0b5bc823a2d128537f4e'
-const API_Key = process.env.API_Key;
+
+const API_Key = process.env.REACT_APP_WEATHER_API_KEY;
 
 class App extends React.Component {
   state = {
@@ -56,7 +54,7 @@ class App extends React.Component {
         humidity: undefined,
         description: undefined,
         main: undefined,
-        error: "Please Enter The Correct Location" +API_Key
+        error: "Please Enter The Correct Location"
       })
     }
 
