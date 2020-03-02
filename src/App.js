@@ -106,6 +106,19 @@ class App extends React.Component {
         })
       }
     }
+    else
+    {
+      this.setState({
+        temp: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        main: undefined,
+        icon: this.weatherIcon.Thunderstorm,
+        error: "Please Enter The Correct Location"
+      })
+    }
   }
 
 
