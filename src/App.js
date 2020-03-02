@@ -2,6 +2,7 @@ import React from "react";
 import Titles from "./components/Titles";
 import Form from "./components/Form"
 import Weather from "./components/Weather"
+import 'weather-icons/css/weather-icons.css'
 const config = require('./config.json');
 const dotenv = require('dotenv');
 dotenv.config()
@@ -16,9 +17,53 @@ class App extends React.Component {
     humidity: undefined,
     description: undefined,
     main: undefined,
-    error: undefined
+    error: undefined,
+    icon: undefined
   }
+  weatherIcon = {
+    Thunderstorm: "wi-thunderstorm",
+    Drizzle: "wi-sleet",
+    Rain: "wi-storm-showers",
+    Snow: "wi-snow",
+    Atmosphere: "wi-fog",
+    Clear: "wi-day-sunny",
+    Clouds: "wi-day-fog"
+  };
 
+  setWeatherIcon(icons, main){
+    switch(true){
+      case main === "Thunderstorm":
+        this.setState({icon:icons.Thunderstorm})
+      break;
+
+      case main === "Drizzle":
+        this.setState({icon:icons.Drizzle})
+      break;
+
+      case main === "Rain":
+        this.setState({icon:icons.Rain})
+      break;
+
+      case main === "Snow":
+        this.setState({icon:icons.Snow})
+      break;
+
+      case main === "Atmosphere":
+        this.setState({icon:icons.Atmosphere})
+      break;
+
+      case main === "Clear":
+        this.setState({icon:icons.Clear})
+      break;
+
+      case main === "Clouds":
+        this.setState({icon:icons.Clouds})
+      break;
+      
+      default:
+        this.setState({icon:icons.Clear})
+    }
+  }
   getWeather = async (e) => {
     e.preventDefault(); // prevent web to refresh when pressed the button
     const city = e.target.elements.city.value;
@@ -42,8 +87,11 @@ class App extends React.Component {
         humidity: data.main.humidity,
         description: data.weather[0].description,
         main: data.weather[0].main,
-        error: ""
+        error: "",
+        // icon: this.weatherIcon.Rain
       })
+      this.setWeatherIcon(this.weatherIcon, data.weather[0].main)
+
     }
     else
     {
@@ -63,9 +111,7 @@ class App extends React.Component {
 
   render(){
     return(
-      <div className="box">
-        <div className = "content">
-          <img src="" alt="icon" id="icon"></img>
+        <div className = "title-containerder">
           <Titles />
           <Form getWeather={this.getWeather}/>
           <Weather 
@@ -75,10 +121,11 @@ class App extends React.Component {
             humidity = {this.state.humidity}
             description = {this.state.description}
             main = {this.state.main}
+            weatherIcon = {this.state.icon}
             error = {this.state.error}
           />
         </div>
-      </div>
+
     );
   }
 }
