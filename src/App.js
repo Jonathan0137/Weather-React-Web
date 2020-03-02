@@ -80,32 +80,32 @@ class App extends React.Component {
     
     if(city && country)
     {
-      this.setState({
-        temp: data.main.temp,
-        city: data.name,
-        country: data.sys.country,
-        humidity: data.main.humidity,
-        description: data.weather[0].description,
-        main: data.weather[0].main,
-        error: "",
-        // icon: this.weatherIcon.Rain
-      })
-      this.setWeatherIcon(this.weatherIcon, data.weather[0].main)
-
+      try{
+        this.setState({
+          temp: data.main.temp,
+          city: data.name,
+          country: data.sys.country,
+          humidity: data.main.humidity,
+          description: data.weather[0].description,
+          main: data.weather[0].main,
+          error: ""
+        });
+        this.setWeatherIcon(this.weatherIcon, data.weather[0].main)
+      }
+      catch(e)
+      {
+        this.setState({
+          temp: undefined,
+          city: undefined,
+          country: undefined,
+          humidity: undefined,
+          description: undefined,
+          main: undefined,
+          icon: this.weatherIcon.Thunderstorm,
+          error: "Please Enter The Correct Location"
+        })
+      }
     }
-    else
-    {
-      this.setState({
-        temp: undefined,
-        city: undefined,
-        country: undefined,
-        humidity: undefined,
-        description: undefined,
-        main: undefined,
-        error: "Please Enter The Correct Location"
-      })
-    }
-
   }
 
 
