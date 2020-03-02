@@ -3,20 +3,31 @@
 
 
 .wrapper {
-    background: linear-gradient(to right, #e67e22, #e74c3c);
+    text-align: center;
+    background-image: url(img/3.jpg);
+    background-size: cover; 
     height: 100vh;
-    display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
+    display: flex;
 }
-  
-
-.title-containerder{
-    background-image: url(img/1.jpg);
-    background-size: cover;
+.container{
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 100vh;
+    height: 50vh;
+    color: aliceblue;
+}
+
+.Form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 10vh;
+}
+.title{
+    color: aliceblue;
 }

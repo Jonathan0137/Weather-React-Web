@@ -111,7 +111,7 @@ class App extends React.Component {
 
   render(){
     return(
-        <div className = "title-containerder">
+        <div className = "wrapper">
           <Titles />
           <Form getWeather={this.getWeather}/>
           <Weather 
